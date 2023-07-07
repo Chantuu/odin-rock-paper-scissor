@@ -15,7 +15,7 @@ function getComputerChoice() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        console.log('Draw Round');
+        return 'Draw Round'
     } else if (playerSelection === 'Rock' && computerSelection == 'Paper') {
         return `You lose! ${computerSelection} beats ${playerSelection}`;
     } else if (playerSelection === 'Rock' && computerSelection == 'Scissors') {
@@ -31,12 +31,28 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
+function getUserChoice(round) {
+    let playerChoice = prompt(`Round ${+round}!\nPlease choose one of these: [Rock, Paper, Scissors]`);
+    playerChoice = `${playerChoice.slice(0, 1).toUpperCase()}${playerChoice.slice(1).toLowerCase()}`;
+
+    if (playerChoice === 'Rock' || playerChoice === 'Paper' || playerChoice === 'Scissors') {
+        return playerChoice;
+    } else {
+        return null;
+    }
+}
+
 function game() {
     for (let i = 1; i <= 5; i++) {
-        let playerChoice = prompt(`Round ${i}!\nPlease choose one of these: [Rock, Paper, Scissors]`);
-        playerChoice = `${playerChoice.slice(0, 1).toUpperCase()}${playerChoice.slice(1).toLowerCase()}`;
-        console.log(playRound(playerChoice, getComputerChoice()));
+        let playerChoice = getUserChoice(i);
+
+        if (!(playerChoice === null)) {
+            console.log(playRound(playerChoice, getComputerChoice()));
+        } else {
+            console.log('Please type your choice correctly and try again!');
+        }
     }
+    console.log('End of the game!');
 }
 
 game();
