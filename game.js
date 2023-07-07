@@ -31,4 +31,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-console.log(playRound(playerChoice, getComputerChoice()));
+function game() {
+    for (let i = 1; i <= 5; i++) {
+        let playerChoice = prompt(`Round ${i}!\nPlease choose one of these: [Rock, Paper, Scissors]`);
+        playerChoice = `${playerChoice.slice(0, 1).toUpperCase()}${playerChoice.slice(1).toLowerCase()}`;
+        console.log(playRound(playerChoice, getComputerChoice()));
+    }
+}
+
+game();
