@@ -1,0 +1,50 @@
+.container, body {
+    display: flex;
+}
+
+body, h2 {
+    margin: 0px;
+}
+
+h2 {
+    font-size: 44px;
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
+}
+
+.container.main, .container.top {
+    flex-direction: column;
+}
+
+.container.top {
+    margin-bottom: 100px;
+    gap: 30px;
+}
+
+.container.score {
+    justify-content: center;
+    gap: 17px;
+}
+
+.container.choice {
+    justify-content: space-between;
+    gap: 300px;
+}
+
+.container.choice.child {
+    gap: 7px;
+}
+
+.container.button {
+    gap: 10px;
+}
+
+button {
+    flex: auto;
+    padding: 7px 40px;
+}
