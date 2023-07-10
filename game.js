@@ -41,18 +41,3 @@ function getUserChoice(round) {
         return null;
     }
 }
-
-function game() {
-    for (let i = 1; i <= 5; i++) {
-        let playerChoice = getUserChoice(i);
-
-        if (!(playerChoice === null)) {
-            console.log(playRound(playerChoice, getComputerChoice()));
-        } else {
-            console.log('Please type your choice correctly and try again!');
-        }
-    }
-    console.log('End of the game!');
-}
-
-game();
