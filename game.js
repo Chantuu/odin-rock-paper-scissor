@@ -24,6 +24,16 @@ function addScore() {
     scoreNode.innerText = score;
 }
 
+function endGame() {
+    if (scoreNode.innerText >= 5) {
+        score = 0;
+        userChoice.innerText = '';
+        computerChoice.innerText = '';
+        scoreNode.innerText = 0;
+        alert('Game finished! Starting again! Thank you for playing!');
+    }
+}
+
 function playRound(playerSelection, computerSelection) {
     userChoice.innerText = playerSelection;
     computerChoice.innerText = computerSelection;
@@ -46,6 +56,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'Scissors' && computerSelection == 'Rock') {
         alert(`You lose! ${computerSelection} beats ${playerSelection}`);
     }
+    endGame();
 }
 
 const buttons = document.querySelectorAll('button');
