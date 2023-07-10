@@ -1,3 +1,7 @@
+const userChoice = document.querySelector('#userChoice');
+const computerChoice = document.querySelector('#computerChoice');
+
+
 function getComputerChoice() {
     const choice = Math.round(Math.random() * 2) + 1;
 
@@ -14,6 +18,9 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    userChoice.innerText = playerSelection;
+    computerChoice.innerText = computerSelection;
+
     if (playerSelection === computerSelection) {
         return 'Draw Round'
     } else if (playerSelection === 'Rock' && computerSelection == 'Paper') {
@@ -31,13 +38,8 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function getUserChoice(round) {
-    let playerChoice = prompt(`Round ${+round}!\nPlease choose one of these: [Rock, Paper, Scissors]`);
-    playerChoice = `${playerChoice.slice(0, 1).toUpperCase()}${playerChoice.slice(1).toLowerCase()}`;
+const buttons = document.querySelectorAll('button');
+buttons.forEach(button => button.addEventListener('click', (e) => {
+    playRound(e.target.innerText, getComputerChoice());
+}));
 
-    if (playerChoice === 'Rock' || playerChoice === 'Paper' || playerChoice === 'Scissors') {
-        return playerChoice;
-    } else {
-        return null;
-    }
-}
